@@ -4,35 +4,43 @@
 
 你可以按照以下流程来部署测试程序:
 
-#1 运行sample 目录下的service.js
-   node service.js &
+#1 运行```sample``` 目录下的 ```service.js```
+   ```
+      node service.js &
+   ```
    这个进程会在3561,3562 端口提供http 服务,来模拟真实的数据源
    用curl 测试如下：
-   curl http://localhost:3561/?fm=m
+   ```
+      curl http://localhost:3561/?fm=m
+   ```
    response :
-   { "columns" : ["id","sex"],
-     "data" : [ 
-       [1,"m"],
-       [2,"m"],
-       [5,"m"],
-       [7,"m"],
-       [9,"m"]
-     ]
-   }
-   
-   curl http://localhost:3562/?minId=4
+   ```
+      { "columns" : ["id","sex"],
+        "data" : [ 
+          [1,"m"],
+          [2,"m"],
+          [5,"m"],
+          [7,"m"],
+          [9,"m"]
+        ]
+      }
+   ```
+   ```
+      curl http://localhost:3562/?minId=4
+   ```
    response:
-   { "columns" : ["id","name","type"], 
-     "data" : [ 
-       [5,"n5","t5"],
-       [6,"n6","t6"],
-       [7,"n7","t7"],
-       [8,"n8","t8"],
-       [9,"n9","t9"],
-       [10,"n10","t10"]
-     ]
-   }
-
+   ```
+      { "columns" : ["id","name","type"], 
+        "data" : [ 
+          [5,"n5","t5"],
+          [6,"n6","t6"],
+          [7,"n7","t7"],
+          [8,"n8","t8"],
+          [9,"n9","t9"],
+          [10,"n10","t10"]
+        ]
+      }
+   ````
 #2 确认loader 配置正确
    在 src/source/ 下，service_a.js ,service_b.js 为以上两个端口服务相应的loader，
    如果默认的3561,3562 端口被占用，请确认其配置做相应修改
